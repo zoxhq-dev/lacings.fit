@@ -1,40 +1,60 @@
-<!DOCTYPE html>
 <!-- This is an open source project made by me, zoxhq. so comments in here show you how to work the code and etc. -->
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <title>@Zox <3</title> <!-- Title changed here -->
-    <style>
-        #who {
-            text-shadow: 0 0 8px rgba(255, 80, 243, 0.505), 0 0 15px rgba(234, 129, 255, 0.658), 0 0 20px rgba(255, 80, 243, 0.505);
-            font-size: 3em; /* Adjust font size as needed */
-        }
-
-        body::before {
-            content: "";
-            background: url('https://files.catbox.moe/6i424f.gif') center/cover no-repeat;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            filter: blur(10px);
-            opacity: 0.2;
-        }
-    </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>@Zox <3</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif; /* Cool font */
+            text-align: center; /* Center text */
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            background: url('https://files.catbox.moe/6i424f.gif') center/cover no-repeat;
+            filter: blur(10px);
+            opacity: 0.2;
+        }
+
+        #who {
+            text-shadow: 0 0 8px rgba(255, 80, 243, 0.505), 0 0 15px rgba(234, 129, 255, 0.658), 0 0 20px rgba(255, 80, 243, 0.505);
+            font-size: 3em; /* Adjust font size as needed */
+        }
+
+        h1, h2, h3 {
+            color: #fff; /* Text color for better visibility */
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.8); /* Light background for form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            background-color: #ff4c4c; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff1a1a; /* Button hover effect */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to lacings reporting platform</h1>
-        <nav>
-        </nav>
+        <h1>Welcome to Lacings Reporting Platform</h1>
     </header>
 
     <section id="report-support">
@@ -74,7 +94,7 @@
     </section>
 
     <section id="about-team">
-        <h2>About Lacings </h2>
+        <h2>About Lacings</h2>
         <p>Our mission is to provide support and protection. We focus on safety and do not engage in any harmful activities.</p>
         <p>Meet our dedicated team committed to making a difference.</p>
     </section>
@@ -89,42 +109,13 @@
         </ul>
         <p>If you need help, reach out to Lacings directly.</p>
     </section>
-<script>
-        function playAudio() {
-            if (!musicPlayed) {
-                const audio = document.getElementById("backgroundMusic");
-                audio.play();
-                musicPlayed = true;
-            }
-        }
-        
-        document.addEventListener("click", playAudio);
-<script>
-    
-     <audio id="backgroundMusic">
+
+    <audio id="backgroundMusic" autoplay loop>
         <source src="background-music.mp3" type="audio/mpeg">
     </audio>
 
     <footer>
         <p>&copy; 2025 Lacings Platform. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
