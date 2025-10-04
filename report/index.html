@@ -11,50 +11,51 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Changed to flex-start for better scrolling */
+            justify-content: center;
             font-family: 'Courier New', monospace;
             text-align: center;
             margin: 0;
-            padding: 20px; /* Added padding for better spacing */
-            height: auto; /* Changed to auto to allow for scrolling */
-            min-height: 100vh; /* Ensures the body takes at least full viewport height */
+            height: 100vh;
             background: url('https://files.catbox.moe/fhev14.jpg') center/cover no-repeat;
             color: black;
-            overflow-y: auto; /* Allow vertical scrolling */
+            overflow: auto;
+            font-size: 0.9em; /* Reduced font size for better page fill */
         }
 
         #who {
             text-shadow: 0 0 8px rgba(255, 80, 243, 0.505), 0 0 15px rgba(234, 129, 255, 0.658), 0 0 20px rgba(255, 80, 243, 0.505);
-            font-size: 3em;
+            font-size: 2.5em; /* Adjusted font size */
+            font-weight: bold; /* Added bold font */
         }
 
         h1, h2, h3 {
             color: black;
+            font-weight: bold; /* Added bold font */
         }
 
         h2 {
-            font-size: 2em;
-            margin: 40px 0;
+            font-size: 1.8em; /* Adjusted section titles */
+            margin: 30px 0; /* Adjusted spacing */
         }
 
         form {
             background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
+            padding: 15px; /* Reduced padding */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: inline-block;
-            margin: 20px auto;
+            margin: 15px auto; /* Adjusted margin */
         }
 
         button {
             background-color: #ff4c4c;
             color: black;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 16px; /* Adjusted padding */
             border-radius: 5px;
             cursor: pointer;
             display: block;
-            margin: 10px auto;
+            margin: 8px auto; /* Adjusted margin */
         }
 
         button:hover {
@@ -68,13 +69,13 @@
         }
 
         section {
-            margin-bottom: 60px;
+            margin-bottom: 40px; /* Adjusted spacing between sections */
         }
 
         #screenshot-box {
             border: 2px dashed #fff;
-            padding: 20px;
-            margin: 20px auto;
+            padding: 15px; /* Reduced padding */
+            margin: 15px auto; /* Adjusted margin */
             width: 80%;
             max-width: 600px;
             background: rgba(255, 255, 255, 0.2);
@@ -82,10 +83,10 @@
 
         .combined-form {
             background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
+            padding: 15px; /* Reduced padding */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            margin: 20px auto;
+            margin: 15px auto; /* Adjusted margin */
             display: inline-block;
         }
     </style>
