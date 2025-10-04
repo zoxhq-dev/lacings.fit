@@ -1,4 +1,3 @@
-<!-- This is an open-source project created by zoxhq. Comments within the code provide guidance on how to work with it. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +17,6 @@
             margin: 0;
             height: 100vh;
             background: url('https://files.catbox.moe/d1qwrc.jpg') center/cover no-repeat;
-            opacity: 1; /* Changed opacity to fully visible */
             color: white;
         }
 
@@ -37,7 +35,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: inline-block;
-            margin: 20px auto; /* Centering the form */
+            margin: 20px auto;
         }
 
         button {
@@ -47,8 +45,8 @@
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            display: block; /* Ensures buttons are block elements */
-            margin: 10px auto; /* Centering buttons */
+            display: block;
+            margin: 10px auto;
         }
 
         button:hover {
@@ -57,8 +55,8 @@
 
         .flexbox {
             display: flex;
-            justify-content: center; /* Centering the buttons */
-            flex-wrap: wrap; /* Allowing buttons to wrap */
+            justify-content: center;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -71,7 +69,7 @@
         <h2>Report & Support</h2>
         <form id="reportForm">
             <label for="report-type">Type of Report:</label>
-            <select id="report-type" name="report-type">
+            <select id="report-type" name="report-type" required>
                 <option value="extortion">Extortion</option>
                 <option value="scam">Scam</option>
                 <option value="harassment">Harassment</option>
@@ -113,15 +111,13 @@
             <a href="https://t.me/allegedlylaced"><button>Tele</button></a>
             <a href="https://discord.gg/7Uu2KTkN"><button>Discord</button></a>   
         </div>
-        <p>If you need help, reach out to Lacings directly. we’re not law enforcement but we support and escalate cases.</p>
+        <p>If you need help, reach out to Lacings directly. We’re not law enforcement but we support and escalate cases.</p>
     </section>
 
     <audio id="backgroundMusic" autoplay loop>
         <source src="background-music.mp3" type="audio/mpeg">
     </audio>
-<script>
-document.addEventListener("click", playAudio);
-<script>    
+
     <footer>
         <p>&copy; 2025 Lacings Platform. All rights reserved.</p>
     </footer>
@@ -162,4 +158,3 @@ document.addEventListener("click", playAudio);
     </script>
 </body>
 </html>
-
