@@ -17,7 +17,7 @@
             margin: 0;
             height: 100vh;
             background: url('https://files.catbox.moe/fhev14.jpg') center/cover no-repeat;
-            color: white;
+            color: black; /* Changed text color to black */
             overflow: auto; /* Allow scrolling */
         }
 
@@ -27,7 +27,7 @@
         }
 
         h1, h2, h3 {
-            color: black; /* Changed to black for titles */
+            color: black; /* Ensured titles are black */
         }
 
         h2 {
@@ -46,7 +46,7 @@
 
         button {
             background-color: #ff4c4c;
-            color: white;
+            color: black; /* Changed button text color to black */
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -69,7 +69,6 @@
             margin-bottom: 60px; /* Increased spacing between sections */
         }
 
-        /* New styles for the screenshot box */
         #screenshot-box {
             border: 2px dashed #fff;
             padding: 20px;
@@ -79,7 +78,6 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        /* New styles for the combined form */
         .combined-form {
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -115,7 +113,6 @@
             <button type="submit">Submit Report</button>
         </form>
         
-        <!-- Screenshot Box -->
         <div id="screenshot-box">
             <h3>Upload Screenshot</h3>
             <p>Please add any relevant screenshots here.</p>
@@ -176,7 +173,6 @@
             const age = document.getElementById('age').value;
             const description = document.getElementById('description').value;
 
-            // Send report to Discord webhook
             const webhookURL = 'https://discord.com/api/webhooks/1423809016974409770/PEHL_jsh_DIg37DtHA5x3bKFB97VJ_S8wFFXw3fcRKkT89w_0Mhntxd4lz94zH032uBi'; // Replace with your actual webhook URL
             const reportData = {
                 content: `Report Type: ${reportType}\nDetails: ${details}\nName: ${name}\nAge: ${age}\nDescription: ${description}`
