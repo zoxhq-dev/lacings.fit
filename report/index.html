@@ -67,6 +67,26 @@
         section {
             margin-bottom: 60px; /* Increased spacing between sections */
         }
+
+        /* New styles for the screenshot box */
+        #screenshot-box {
+            border: 2px dashed #fff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* New styles for the additional form */
+        .additional-form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -87,6 +107,28 @@
             <textarea id="details" name="details" required></textarea>
             <button type="submit">Submit Report</button>
         </form>
+        
+        <!-- Screenshot Box -->
+        <div id="screenshot-box">
+            <h3>Upload Screenshot</h3>
+            <p>Please add any relevant screenshots here.</p>
+            <input type="file" accept="image/*">
+        </div>
+
+        <!-- Additional Form -->
+        <div class="additional-form">
+            <h3>Additional Information</h3>
+            <form id="additionalInfoForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <button type="submit">Submit Additional Info</button>
+            </form>
+        </div>
+
         <h3>Resources</h3>
         <ul>
             <li><a href="https://discord.com/trustandsafety">Discord Trust & Safety</a></li>
@@ -163,6 +205,18 @@
                 console.error('Error:', error);
                 alert('An error occurred. Please try again later.');
             });
+        });
+
+        document.getElementById('additionalInfoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const description = document.getElementById('description').value;
+
+            // Handle additional information submission logic here
+            alert(`Additional Info Submitted:\nName: ${name}\nAge: ${age}\nDescription: ${description}`);
+            document.getElementById('additionalInfoForm').reset(); // Reset the form
         });
     </script>
 </body>
