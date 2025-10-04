@@ -7,6 +7,16 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>@Nullify <3</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            text-align: center;
+        }
+
         body::before {
             content: "";
             background: url('https://files.catbox.moe/hcozzg.gif') center/cover no-repeat;
@@ -66,7 +76,6 @@
             <button id="enterButton">Click to Enter</button>
         </div>
     </div>
-    <div class="overlay"></div>
     <main style="display: none;">
         <img src="https://files.catbox.moe/7v7z3r.png" alt="Profile Picture">
         <span id="who"></span>
