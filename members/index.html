@@ -10,8 +10,8 @@
     <style>
         #who {
             text-shadow: 0 0 8px rgba(255, 80, 243, 0.505), 0 0 15px rgba(234, 129, 255, 0.658), 0 0 20px rgba(255, 80, 243, 0.505);
-            font-size: 3em; /* Adjust font size as needed */
-            text-align: center; /* Center the text */
+            font-size: 3em; 
+            text-align: center; 
         }
 
         body::before {
@@ -36,19 +36,34 @@
 
         #footer {
             text-shadow: 0 0 1px rgba(255, 80, 243, 0.505), 0 0 5px rgba(234, 129, 255, 0.658), 0 0 7px rgba(255, 80, 243, 0.505);
-            font-size: 2em; /* Adjust font size as needed */
-            text-align: center; /* Center the footer text */
+            font-size: 2em; 
+            text-align: center; 
         }
 
         .flexbox {
             display: flex;
-            flex-direction: column; /* Stack buttons vertically */
-            align-items: center; /* Center buttons horizontally */
-            margin-top: 20px; /* Add some space above the buttons */
+            flex-direction: column; 
+            align-items: center; 
+            margin-top: 20px; 
         }
 
         .flexbox a {
-            margin: 10px 0; /* Add space between buttons */
+            margin: 5px 0; /* Reduced space between buttons */
+        }
+
+        button {
+            padding: 10px 20px; /* Added padding for better button appearance */
+            font-size: 1em; /* Consistent font size for buttons */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners for buttons */
+            background-color: rgba(255, 80, 243, 0.8); /* Background color for buttons */
+            color: white; /* Text color for buttons */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        button:hover {
+            background-color: rgba(234, 129, 255, 0.8); /* Change background on hover */
         }
     </style>
 </head>
@@ -65,4 +80,3 @@
     </main>
 </body>
 </html>
-
