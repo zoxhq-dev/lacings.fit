@@ -11,14 +11,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Changed to flex-start for better scrolling */
             font-family: 'Courier New', monospace;
             text-align: center;
             margin: 0;
-            height: 100vh;
+            padding: 20px; /* Added padding for better spacing */
+            height: auto; /* Changed to auto to allow for scrolling */
+            min-height: 100vh; /* Ensures the body takes at least full viewport height */
             background: url('https://files.catbox.moe/fhev14.jpg') center/cover no-repeat;
-            color: black; /* Changed text color to black */
-            overflow: auto; /* Allow scrolling */
+            color: black;
+            overflow-y: auto; /* Allow vertical scrolling */
         }
 
         #who {
@@ -27,12 +29,12 @@
         }
 
         h1, h2, h3 {
-            color: black; /* Ensured titles are black */
+            color: black;
         }
 
         h2 {
-            font-size: 2em; /* Enlarged section titles */
-            margin: 40px 0; /* Added spacing */
+            font-size: 2em;
+            margin: 40px 0;
         }
 
         form {
@@ -46,7 +48,7 @@
 
         button {
             background-color: #ff4c4c;
-            color: black; /* Changed button text color to black */
+            color: black;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -66,7 +68,7 @@
         }
 
         section {
-            margin-bottom: 60px; /* Increased spacing between sections */
+            margin-bottom: 60px;
         }
 
         #screenshot-box {
