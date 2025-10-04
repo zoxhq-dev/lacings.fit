@@ -36,11 +36,36 @@
         #viewCounter {
             color: white; /* Changed the color of the view counter to white */
         }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .click-to-enter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .enter-button {
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
-    <main>
+    <div class="click-to-enter">
+        <div class="warning">Warning: This page contains flashing images that may trigger seizures for people with photosensitive epilepsy.</div>
+        <button class="enter-button" id="enterButton">Click to Enter</button>
+    </div>
+    <main style="display: none;">
         <img src="https://files.catbox.moe/7v7z3r.png" alt="Profile Picture">
         <span id="who"></span>
         <span id="pointer">&#9758;</span>
@@ -58,8 +83,7 @@
     <script>
         const text = "@Nullify";
         const whoElement = document.getElementById("who");
-        const footerText = "original creator @ lacings";
-        const footerText = "contact the owner personal if your request is very urgent, expect a response within 12 hours";
+        const footerText = "original creator @ lacings. Contact the owner personally if your request is very urgent, expect a response within 12 hours.";
         const footerElement = document.getElementById("footer");
         const pointerElement = document.getElementById("pointer");
         const viewCountElement = document.getElementById("count");
@@ -103,10 +127,12 @@
                 musicPlayed = true;
             }
         }
-        
-        document.addEventListener("click", playAudio);
+
+        document.getElementById("enterButton").addEventListener("click", function() {
+            document.querySelector('.click-to-enter').style.display = 'none';
+            document.querySelector('main').style.display = 'block';
+            playAudio();
+        });
     </script>
 </body>
 </html>
-
-
