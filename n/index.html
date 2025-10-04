@@ -7,17 +7,6 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>@Nullify <3</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-            background-color: black; /* Set background to black initially */
-        }
-
         body::before {
             content: "";
             background: url('https://files.catbox.moe/hcozzg.gif') center/cover no-repeat;
@@ -27,7 +16,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            filter: blur(12px);
+            filter: blur(10px);
             opacity: 0.2;
         }
 
@@ -45,54 +34,47 @@
         }
 
         #viewCounter {
+            color: white; /* Changed the color of the view counter to white */
+        }
+
+        /* Click to Enter Overlay */
+        .click-to-enter {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            z-index: 10;
         }
 
         .warning {
             color: red;
             font-weight: bold;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .click-to-enter {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .enter-button {
-            padding: 10px 20px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        main {
-            text-align: center;
-            display: none;
-        }
-
-        img {
-            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="click-to-enter">
-        <div class="warning">Warning: This page contains flashing images that may trigger seizures for people with photosensitive epilepsy.</div>
-        <button class="enter-button" id="enterButton">Click to Enter</button>
+        <div>
+            <p class="warning">Warning: This page contains flashing images that may trigger seizures for people with photosensitive epilepsy.</p>
+            <button id="enterButton">Click to Enter</button>
+        </div>
     </div>
-    <main>
+    <div class="overlay"></div>
+    <main style="display: none;">
         <img src="https://files.catbox.moe/7v7z3r.png" alt="Profile Picture">
-        <div id="who"></div>
-        <div id="pointer">&#9758;</div>
-        <div id="footer"></div>
+        <span id="who"></span>
+        <span id="pointer">&#9758;</span>
+        <span id="footer"></span>
         <div class="flexbox">
-            <a href="https://twitter.com/allegedlylaced"><button><i class="icon fa-brands twitter"> target="_blank" rel="noopener noreferrer">Twitter</button></a>
-            <a href="https://discord.gg/2hDhvRKdq9"><button><i class="icon fa-brands discord"> target="_blank" rel="noopener noreferrer">Discord</button></a>
+            <a href="https://t.me/allegedlylaced"><button><i target="_blank" rel="noopener noreferrer" class="icon fa-brands telegram"></i>Tele</button></a>
+            <a href="https://discord.gg/sligh"><button><i target="_blank" rel="noopener noreferrer" class="icon fa-brands discord"></i>/sligh</button></a>
         </div>
         <div id="viewCounter">Views: <span id="count">0</span></div>
     </main>
@@ -104,7 +86,7 @@
     <script>
         const text = "@Nullify";
         const whoElement = document.getElementById("who");
-        const footerText = "original creator @ lacings. Contact the owner personally if your request is very urgent, expect a response within 12 hours.";
+        const footerText = "Founder @Lacings";
         const footerElement = document.getElementById("footer");
         const pointerElement = document.getElementById("pointer");
         const viewCountElement = document.getElementById("count");
@@ -148,12 +130,17 @@
                 musicPlayed = true;
             }
         }
+        
+        document.addEventListener("click", playAudio);
+        
+        // Increment view count on every page view
+        window.onload = updateViewCount;
 
+        // Handle click to enter
         document.getElementById("enterButton").addEventListener("click", function() {
-            document.querySelector('.click-to-enter').style.display = 'none';
-            document.querySelector('main').style.display = 'block';
-            playAudio();
+            document.querySelector(".click-to-enter").style.display = "none";
+            document.querySelector("main").style.display = "block";
         });
     </script>
-</body>
+</body> 
 </html>
