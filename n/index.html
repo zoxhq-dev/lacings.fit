@@ -7,6 +7,16 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>@Nullify <3</title>
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
         body::before {
             content: "";
             background: url('https://files.catbox.moe/hcozzg.gif') center/cover no-repeat;
@@ -31,13 +41,13 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            flex-direction: column; /* Centering links vertically */
-            align-items: center; /* Centering links horizontally */
+            flex-direction: column;
+            align-items: center;
         }
 
         #viewCounter {
             color: white;
-            text-align: center; /* Centering view counter */
+            text-align: center;
         }
 
         .warning {
@@ -49,10 +59,10 @@
 
         .click-to-enter {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
 
         .enter-button {
@@ -62,17 +72,21 @@
         }
 
         main {
-            text-align: center; /* Centering main content */
+            text-align: center;
+            display: none;
+        }
+
+        img {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
     <div class="click-to-enter">
         <div class="warning">Warning: This page contains flashing images that may trigger seizures for people with photosensitive epilepsy.</div>
         <button class="enter-button" id="enterButton">Click to Enter</button>
     </div>
-    <main style="display: none;">
+    <main>
         <img src="https://files.catbox.moe/7v7z3r.png" alt="Profile Picture">
         <div id="who"></div>
         <div id="pointer">&#9758;</div>
