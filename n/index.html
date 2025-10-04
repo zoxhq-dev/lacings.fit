@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>@Nullify <3</title>
     <style>
         body {
+            margin: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
             position: relative;
             text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
         }
 
         body::before {
@@ -30,24 +31,6 @@
             opacity: 0.2;
         }
 
-        #who span {
-            display: inline-block;
-            background: url('gif/sparkle_white.gif') no-repeat;
-            background-size: cover;
-            padding: 4px;
-        }
-
-        .flexbox {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        #viewCounter {
-            color: white; /* Changed the color of the view counter to white */
-        }
-
-        /* Click to Enter Overlay */
         .click-to-enter {
             position: fixed;
             top: 0;
@@ -61,44 +44,124 @@
             align-items: center;
             font-size: 24px;
             z-index: 10;
+            flex-direction: column;
+            text-align: center;
         }
 
-        .warning {
+        .click-to-enter .warning {
             color: red;
             font-weight: bold;
+            margin-bottom: 20px;
         }
+
+        main {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        #who {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        #who span {
+            display: inline-block;
+            background: url('gif/sparkle_white.gif') no-repeat;
+            background-size: cover;
+            padding: 4px;
+        }
+
+        #footer {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .flexbox {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #viewCounter {
+            margin-top: 10px;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
+    <!-- Click to Enter Overlay -->
     <div class="click-to-enter">
-        <div>
-            <p class="warning">Warning: This page contains flashing images that may trigger seizures for people with photosensitive epilepsy.</p>
-            <button id="enterButton">Click to Enter</button>
-        </div>
+        <p class="warning">Warning: This page contains flashing images that may trigger seizures for people with photosensitive epilepsy.</p>
+        <button id="enterButton">Click to Enter</button>
     </div>
-    <main style="display: none;">
-        <img src="https://files.catbox.moe/7v7z3r.png" alt="Profile Picture">
-        <span id="who"></span>
-        <span id="pointer">&#9758;</span>
-        <span id="footer"></span>
-        <div class="flexbox">
-            <a href="https://t.me/allegedlylaced"><button><i target="_blank" rel="noopener noreferrer" class="icon fa-brands telegram"></i>Tele</button></a>
-            <a href="https://discord.gg/sligh"><button><i target="_blank" rel="noopener noreferrer" class="icon fa-brands discord"></i>/sligh</button></a>
+
+    <!-- Main Content -->
+    <main>
+        <div class="profile-container">
+            <img class="profile-pic" src="https://files.catbox.moe/7v7z3r.png" alt="Profile Picture">
+            <div id="who"></div>
+            <div id="footer"></div>
+            <div class="flexbox">
+                <a href="https://t.me/allegedlylaced" target="_blank" rel="noopener noreferrer">
+                    <button>Tele</button>
+                </a>
+                <a href="https://discord.gg/sligh" target="_blank" rel="noopener noreferrer">
+                    <button>/sligh</button>
+                </a>
+            </div>
+            <div id="viewCounter">Views: <span id="count">0</span></div>
         </div>
-        <div id="viewCounter">Views: <span id="count">0</span></div>
     </main>
 
+    <!-- Background Music -->
     <audio id="backgroundMusic">
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Scripts -->
     <script>
         const text = "@Nullify";
         const whoElement = document.getElementById("who");
         const footerText = "Founder @Lacings";
         const footerElement = document.getElementById("footer");
-        const pointerElement = document.getElementById("pointer");
         const viewCountElement = document.getElementById("count");
+
         let index = 0;
         let typing = true;
         let musicPlayed = false;
@@ -128,28 +191,27 @@
                 setTimeout(typeWriter, 100);
             } else if (typing) {
                 typing = false;
-                pointerElement.style.display = "inline-block";
             }
         }
 
         function playAudio() {
             if (!musicPlayed) {
                 const audio = document.getElementById("backgroundMusic");
-                audio.play();
+                audio.play().catch(e => console.log("Autoplay prevented"));
                 musicPlayed = true;
             }
         }
-        
-        document.addEventListener("click", playAudio);
-        
-        // Increment view count on every page view
-        window.onload = updateViewCount;
 
-        // Handle click to enter
-        document.getElementById("enterButton").addEventListener("click", function() {
+        document.addEventListener("click", playAudio);
+
+        // Show main content on click
+        document.getElementById("enterButton").addEventListener("click", function () {
             document.querySelector(".click-to-enter").style.display = "none";
             document.querySelector("main").style.display = "block";
         });
+
+        // Increment view count on load
+        window.onload = updateViewCount;
     </script>
-</body> 
+</body>
 </html>
