@@ -31,10 +31,13 @@
             display: flex;
             justify-content: center;
             gap: 10px;
+            flex-direction: column; /* Centering links vertically */
+            align-items: center; /* Centering links horizontally */
         }
 
         #viewCounter {
-            color: white; /* Changed the color of the view counter to white */
+            color: white;
+            text-align: center; /* Centering view counter */
         }
 
         .warning {
@@ -57,6 +60,10 @@
             font-size: 20px;
             cursor: pointer;
         }
+
+        main {
+            text-align: center; /* Centering main content */
+        }
     </style>
 </head>
 <body>
@@ -67,9 +74,9 @@
     </div>
     <main style="display: none;">
         <img src="https://files.catbox.moe/7v7z3r.png" alt="Profile Picture">
-        <span id="who"></span>
-        <span id="pointer">&#9758;</span>
-        <span id="footer"></span>
+        <div id="who"></div>
+        <div id="pointer">&#9758;</div>
+        <div id="footer"></div>
         <div class="flexbox">
             <a href="https://discord.gg/2hDhvRKdq9"><button><i class="icon fa-brands discord"></i>Lacings</button></a>
         </div>
