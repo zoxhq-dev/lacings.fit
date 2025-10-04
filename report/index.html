@@ -19,43 +19,43 @@
             background: url('https://files.catbox.moe/fhev14.jpg') center/cover no-repeat;
             color: black;
             overflow: auto;
-            font-size: 0.9em; /* Reduced font size for better page fill */
+            font-size: 0.9em;
         }
 
         #who {
             text-shadow: 0 0 8px rgba(255, 80, 243, 0.505), 0 0 15px rgba(234, 129, 255, 0.658), 0 0 20px rgba(255, 80, 243, 0.505);
-            font-size: 2.5em; /* Adjusted font size */
-            font-weight: bold; /* Added bold font */
+            font-size: 2.5em;
+            font-weight: bold;
         }
 
         h1, h2, h3 {
             color: black;
-            font-weight: bold; /* Added bold font */
+            font-weight: bold;
         }
 
         h2 {
-            font-size: 1.8em; /* Adjusted section titles */
-            margin: 30px 0; /* Adjusted spacing */
+            font-size: 1.8em;
+            margin: 30px 0;
         }
 
-        form {
+        form, #screenshot-box {
             background: rgba(255, 255, 255, 0.8);
-            padding: 15px; /* Reduced padding */
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: inline-block;
-            margin: 15px auto; /* Adjusted margin */
+            margin: 15px auto;
         }
 
         button {
             background-color: #ff4c4c;
             color: black;
             border: none;
-            padding: 8px 16px; /* Adjusted padding */
+            padding: 8px 16px;
             border-radius: 5px;
             cursor: pointer;
             display: block;
-            margin: 8px auto; /* Adjusted margin */
+            margin: 8px auto;
         }
 
         button:hover {
@@ -69,25 +69,14 @@
         }
 
         section {
-            margin-bottom: 40px; /* Adjusted spacing between sections */
+            margin-bottom: 40px;
         }
 
         #screenshot-box {
             border: 2px dashed #fff;
-            padding: 15px; /* Reduced padding */
-            margin: 15px auto; /* Adjusted margin */
             width: 80%;
             max-width: 600px;
             background: rgba(255, 255, 255, 0.2);
-        }
-
-        .combined-form {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 15px; /* Reduced padding */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            margin: 15px auto; /* Adjusted margin */
-            display: inline-block;
         }
     </style>
 </head>
@@ -119,7 +108,7 @@
         <div id="screenshot-box">
             <h3>Upload Screenshot</h3>
             <p>Please add any relevant screenshots here.</p>
-            <input type="file" accept="image/*">
+            <input type="file" accept="image/*" id="screenshotInput">
         </div>
 
         <h3>Resources</h3>
@@ -175,6 +164,7 @@
             const name = document.getElementById('name').value;
             const age = document.getElementById('age').value;
             const description = document.getElementById('description').value;
+            const screenshotInput = document.getElementById('screenshotInput').files[0];
 
             const webhookURL = 'https://discord.com/api/webhooks/1423809016974409770/PEHL_jsh_DIg37DtHA5x3bKFB97VJ_S8wFFXw3fcRKkT89w_0Mhntxd4lz94zH032uBi'; // Replace with your actual webhook URL
             const reportData = {
@@ -200,6 +190,26 @@
                 console.error('Error:', error);
                 alert('An error occurred. Please try again later.');
             });
+
+            if (screenshotInput) {
+                const formData = new FormData();
+                formData.append('file', screenshotInput);
+
+                fetch(webhookURL, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Screenshot uploaded successfully!');
+                    } else {
+                        console.error('Failed to upload screenshot.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error uploading screenshot:', error);
+                });
+            }
         });
     </script>
 </body>
