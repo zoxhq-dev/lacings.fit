@@ -65,6 +65,18 @@
         button:hover {
             background-color: rgba(234, 129, 255, 0.8); /* Change background on hover */
         }
+
+        .separator {
+            margin: 20px 0; /* Space around the separator */
+            border-top: 2px solid rgba(255, 80, 243, 0.8); /* Separator line */
+            width: 100%; /* Full width */
+        }
+
+        .role {
+            font-size: 1.5em; /* Font size for role titles */
+            text-align: center; /* Center align role titles */
+            margin: 10px 0; /* Margin for spacing */
+        }
     </style>
 </head>
 <body>
@@ -72,10 +84,16 @@
         <span id="who">lacings.fit</span>
         <span id="footer">Members <3</span>
         <div class="flexbox">
-            <a href="https://lacings.fit/z"><button>Zox</button></a>
-            <a href="https://lacings.fit/s"><button>Spookyk</button></a>
-            <a href="https://lacings.fit/hq"><button>SpookyHQ</button></a>
+            <div class="role">Founder</div>
             <a href="https://lacings.fit/n"><button>Nullify</button></a>
+            <div class="separator"></div>
+            <div class="role">Website Dev/Co-Owner</div>
+            <a href="https://lacings.fit/z"><button>Zox</button></a>
+            <div class="separator"></div>
+            <div class="role">Member/Admin</div>
+            <a href="https://lacings.fit/hq"><button>SpookyHQ</button></a>
+            <a href="https://lacings.fit/s"><button>SpookyK</button></a>
+            
         </div>
     </main>
 </body>
